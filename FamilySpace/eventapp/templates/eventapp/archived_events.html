@@ -1,0 +1,31 @@
+{% extends "userapp/base_new.html" %}
+{% load static %}
+{% block body %}
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form p-l-30 p-r-30 p-t-58">
+
+                <span class="login100-form-title">FamilySpace</span>
+                <div class="btn mainpg btn-backbutton m-b-16">
+                    <button class="login100-form-btn backbutton-search" type="button"><a href="{% url 'eventapp:show_events' group_pk=group_pk %}" class="txt5">Назад</a></button>
+                    <p class="txt3 creategroup-p">Архив событий:</p>
+                </div>
+
+
+                {% for item in events %}
+                    <div class="container-login100-form-btn  m-b-16">
+                        <button class="login100-form-btn arch-event-btn">
+                            <a href="{% url 'eventapp:read_archived_event' event_pk=item.pk group_pk=group_pk %}" class="txt7">{{ item.title }}<br> {{ item.date|date:'d-m-Y'}}</a>
+                        </button>
+                    </div>
+                {% endfor %}
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+

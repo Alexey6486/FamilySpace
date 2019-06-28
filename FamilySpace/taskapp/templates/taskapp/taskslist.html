@@ -1,0 +1,19 @@
+{% extends "userapp/base_new.html" %}
+{% load static %}
+{% block body %}
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form p-l-30 p-r-30 p-t-58">
+                    <span class="login100-form-title">FamilySpace</span>
+                    <div class="btn mainpg btn-backbutton-contacts">
+                        <button class="login100-form-btn backbutton-search" type="button"><a href="{% url 'chatapp:chatpage' group_pk=group_pk %}" class="txt5">Назад</a></button>
+                        <p class="txt3 creategroup-p">Список задач:</p>
+                        <button class="login100-form-btn backbutton-add-participant" type="button"><a href="{% url 'taskapp:newtask' group_pk=group_pk %}" class="txt5">Добавить</a></button>
+                    </div>
+                    {% include 'taskapp/includes/inc_task_ajax.html' %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

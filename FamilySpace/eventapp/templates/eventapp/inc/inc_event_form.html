@@ -1,0 +1,22 @@
+                        {% csrf_token %}
+                        <div class="container-login100-form-btn  m-b-16">
+{#                            <p>Название</p>#}
+                            {{ event_form.title }}</div>
+                        <div class="container-login100-form-btn  m-b-16">
+{#                            <p>Подробное описание</p>#}
+                            {{ event_form.description }}</div>
+                        <div class="container-login100-form-btn  m-b-16">
+{#                            <p>Место, адрес:</p>#}
+                            {{ event_form.location }}
+                        </div>
+                        <div class="event_line">
+                            <p class="txt7">Время:</p>
+                            {{ event_form.hour }}
+                            {{ event_form.minute }}
+                        </div>
+                        <div class="event_line">
+                            <p class="txt7">Дата:</p>
+                            {{ event_form.day }}
+                            {{ event_form.month }}
+                            {{ event_form.year }}
+                        </div>

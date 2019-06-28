@@ -1,0 +1,32 @@
+{% extends 'authapp/base_new.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form p-l-40 p-r-40 p-t-78" action="{% url 'authapp:signin' %}" method="post" enctype="multipart/form-data">
+                    <span class="login100-form-title">FamilySpace</span>
+                    <span class="login100-form-avatar"><img src="/static/img/avatar.png" alt="FamilySpace"></span>
+                    {% csrf_token %}
+                    {% for i, k in form.errors.items %}
+                        {{ k }}
+                    {% endfor %}
+                    {% for i in form %}
+                        <div class="wrap-input100 validate-input m-b-16 m-t-26">
+                            {{ i }}
+                        </div>
+                    {% endfor %}
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">{% trans "Sign in" %}</button>
+                    </div>
+                    <div class="flex-col-c p-t-40 p-b-40">
+                        <span class="txt1 p-b-9">Не зарегистрированы?</span>
+                        <a href="{% url 'authapp:signup' %}" class="txt3">{% trans "Sign Up" %}</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

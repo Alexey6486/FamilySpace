@@ -1,0 +1,20 @@
+{% extends "userapp/base_new.html" %}
+{% load static %}
+{% block body %}
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form p-l-40 p-r-40 p-t-58" action="{% url 'eventapp:copy_event' event_pk=event_pk group_pk=group_pk %}" method="post">
+                    <span class="login100-form-title">FamilySpace</span>
+                    <div class="btn mainpg m-b-16">
+                        <button class="login100-form-btn creategroup-btn" type="button"><a href="{% url 'eventapp:read_archived_event' event_pk=event_pk group_pk=group_pk %}" class="txt4">Назад</a></button>
+                        <p class="txt3 creategroup-p">Дублирование события:</p>
+                        <input class="login100-form-btn creategroup-btn" type="submit" value="OK">
+                    </div>
+                    {% include 'eventapp/inc/inc_event_form.html' %}
+                </form>
+            </div>
+            <div>{{ message }}</div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "userapp/base_new.html" %}
+{% load static %}
+{% block body %}
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form p-l-40 p-r-40 p-t-58" action="{% url 'groupapp:roleedit' group_pk=group_pk participant_pk=participant_pk %}" method="post">
+                    {% csrf_token %}
+                    <span class="login100-form-title">FamilySpace</span>
+                    <div class="btn mainpg btn-backbutton-contacts">
+                        <button class="login100-form-btn creategroup-btn" type="button"><a href="{% url 'groupapp:view_one_group' group_pk=group_pk %}" class="txt5">Назад</a></button>
+                        <p class="txt3 creategroup-p">Изменение роли:</p>
+                        <input class="login100-form-btn creategroup-btn" type="submit" value="ОК"/>
+                    </div>
+                    <div class="container-login100-form-btn  m-b-16">
+                        {% for item in edit_form %}
+                                {{ item }}
+                        {% endfor %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
